@@ -1,0 +1,143 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:adduplex="clr-namespace:AdDuplex;assembly=AdDuplex.WindowsPhone"
+    x:Class="Logic.DetailsPage"
+    d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait" CacheMode="BitmapCache">
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" Mode="Minimized" Opacity="1" BackgroundColor="#FFF1F0DD" ForegroundColor="Black">
+            <shell:ApplicationBarIconButton x:Name="AppAnswer" IconUri="/Assets/appbar.lightbulb.coil.png" Text="ответ" Click="AppAnswer_Click" />
+            <shell:ApplicationBarIconButton x:Name="AppShow" IconUri="/Assets/appbar.chat.png" Text="Рассказать" Click="AppShow_Click" />
+            <shell:ApplicationBarIconButton x:Name="AppSave" IconUri="/Assets/appbar.save.png" Text="Сохранить" Click="AppSave_Click"/>
+            <shell:ApplicationBarIconButton x:Name="AppQuestion" IconUri="/Assets/appbar.warning.circle.png" Text="Подсказка" Click="AppQuestion_Click"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+
+
+    <!--Для контекста данных установлен верхний пример данных и первый элемент из коллекции примеров данных ниже, и LayoutRoot содержит корневую сетку, где размещается все содержимое страницы-->
+    <Grid x:Name="LayoutRoot" d:DataContext="{Binding Items[0]}" CacheMode="BitmapCache" Background="{Binding ElementsColor, Mode=OneWay}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="768"/>
+        </Grid.RowDefinitions>
+
+        <Image x:Name="FonWhite" CacheMode="BitmapCache" Source="/FonWhite.png" Opacity="0.05" Visibility="Collapsed"></Image>
+        <Image x:Name="FonBlack" CacheMode="BitmapCache" Source="/FonBlack.png" Opacity="0.05" Visibility="Collapsed"></Image>
+
+        <phone:Pivot x:Name="MainPivot" Margin="0,0,0,-30" Title="" LoadingPivotItem="MainPivot_LoadingPivotItem" CacheMode="BitmapCache">
+
+            <phone:PivotItem x:Name="ItemOne" CacheMode="BitmapCache" Header="" Margin="0,-48,0,0">
+                <Grid CacheMode="BitmapCache">
+                    <ScrollViewer Name="SVOne" CacheMode="BitmapCache">
+                        <Grid CacheMode="BitmapCache" Height="1230">
+                            <TextBlock x:Name="TBOrnamentOne1" TextAlignment="Center" TextWrapping="Wrap" Margin="0,57,0,0" FontFamily="/Logic;component/Fonts/Fonts.zip#Silverland Ornate" FontSize="80" Style="{StaticResource PhoneTextExtraLargeStyle}" Height="99" VerticalAlignment="Top" CacheMode="BitmapCache" Text="S0000000000000000s" Foreground="{Binding TextColor, Mode=OneWay}"/>
+                            <TextBlock x:Name="TBOrnamentOne2" TextAlignment="Center" TextWrapping="Wrap" Margin="0,357,0,0" FontFamily="/Logic;component/Fonts/Fonts.zip#Silverland Ornate" FontSize="80" Style="{StaticResource PhoneTextExtraLargeStyle}" Height="102" VerticalAlignment="Top" CacheMode="BitmapCache" Text="S0000000000000000s" RenderTransformOrigin="0.5,0.5" Foreground="{Binding TextColor, Mode=OneWay}">
+                                <TextBlock.RenderTransform>
+                                    <CompositeTransform Rotation="180"/>
+                                </TextBlock.RenderTransform>
+                            </TextBlock>
+
+
+
+
+                            <Rectangle x:Name="RTImageOne" Margin="2,84,2,0" CacheMode="BitmapCache" StrokeThickness="2" Height="348" VerticalAlignment="Top" Fill="{Binding ElementsColor, Mode=OneWay}" Stroke="{Binding TextColor, Mode=OneWay}"/>
+                            <TextBlock x:Name="TBBaseOne" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}" Margin="3,465,3,0" TextAlignment="Center" FontFamily="DOCKER ONE" FontSize="{Binding TextSize, Mode=OneWay}" CacheMode="BitmapCache" Text="{Binding LineThree, Mode=OneWay}" Foreground="{Binding TextColor, Mode=OneWay}" FontWeight="Bold"/>
+                            <Image x:Name="IBOne" Margin="6,88,6,0" Source="/Resources/0.jpg" Stretch="Fill" CacheMode="BitmapCache" Height="340" VerticalAlignment="Top"/>
+                            <TextBlock x:Name="TBTileOne" Text="{Binding LineOne, Mode=OneWay}" TextAlignment="Center" TextWrapping="Wrap" Margin="10,26,10,0" FontFamily="/Logic;component/Fonts/Fonts.zip#SilverlandShadowC" FontSize="70" Style="{StaticResource PhoneTextExtraLargeStyle}" Height="100" VerticalAlignment="Top" CacheMode="BitmapCache" Foreground="{Binding TextColor, Mode=OneWay}"/>
+                            <TextBlock x:Name="RecIsOpenOne" Height="19" Margin="190,440,190,0" TextWrapping="Wrap" Text="ОТКРЫТО" VerticalAlignment="Top" Foreground="Red" FontFamily="Impact" FontSize="17" TextAlignment="Center" FontWeight="Bold"/>
+
+                            
+
+                            <adduplex:AdControl x:Name="AdOne" AdUnitId="153927" AppKey="871b0efa-d9be-4836-8547-4fa0541f685b" Margin="6,88,6,0" VerticalAlignment="Top"/>
+                        </Grid>
+                    </ScrollViewer>
+                    <Rectangle x:Name="RTUpOne" Margin="0" CacheMode="BitmapCache" StrokeThickness="2" Height="43" VerticalAlignment="Top" Fill="{Binding ElementsColor, Mode=OneWay}"/>
+                    <TextBlock x:Name="TBOrnamentOne" TextAlignment="Center" TextWrapping="Wrap" Margin="-60,-32,-60,0" FontFamily="/Logic;component/Fonts/Fonts.zip#Silverland Ornate" FontSize="80" Style="{StaticResource PhoneTextExtraLargeStyle}" Height="95" VerticalAlignment="Top" CacheMode="BitmapCache" Text="L0000000000000000l" Foreground="{Binding TextColor, Mode=OneWay}"/>
+
+
+                </Grid>
+            </phone:PivotItem>
+
+            <phone:PivotItem x:Name="ItemTwo" CacheMode="BitmapCache" Header="" Margin="0,-48,0,0">
+                <Grid CacheMode="BitmapCache">
+                    <ScrollViewer Name="SVTwo" CacheMode="BitmapCache">
+                        <Grid CacheMode="BitmapCache" Height="1230">
+                            <TextBlock x:Name="TBOrnamentTwo1" TextAlignment="Center" TextWrapping="Wrap" Margin="0,57,0,0" FontFamily="/Logic;component/Fonts/Fonts.zip#Silverland Ornate" FontSize="80" Style="{StaticResource PhoneTextExtraLargeStyle}" Height="99" VerticalAlignment="Top" CacheMode="BitmapCache" Text="S0000000000000000s" Foreground="{Binding TextColor, Mode=OneWay}"/>
+                            <TextBlock x:Name="TBOrnamentTwo2" TextAlignment="Center" TextWrapping="Wrap" Margin="0,357,0,0" FontFamily="/Logic;component/Fonts/Fonts.zip#Silverland Ornate" FontSize="80" Style="{StaticResource PhoneTextExtraLargeStyle}" Height="102" VerticalAlignment="Top" CacheMode="BitmapCache" Text="S0000000000000000s" RenderTransformOrigin="0.5,0.5" Foreground="{Binding TextColor, Mode=OneWay}">
+                                <TextBlock.RenderTransform>
+                                    <CompositeTransform Rotation="180"/>
+                                </TextBlock.RenderTransform>
+                            </TextBlock>
+
+                            <Rectangle x:Name="RTImageTwo" Margin="2,84,2,0" CacheMode="BitmapCache" StrokeThickness="2" Height="348" VerticalAlignment="Top" Fill="{Binding ElementsColor, Mode=OneWay}" Stroke="{Binding TextColor, Mode=OneWay}"/>
+                            <TextBlock x:Name="TBBaseTwo" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}" Margin="3,465,3,0" TextAlignment="Center" FontFamily="DOCKER ONE" Foreground="{Binding TextColor, Mode=OneWay}" FontSize="{Binding TextSize, Mode=OneWay}" CacheMode="BitmapCache" Text="{Binding LineThree, Mode=OneWay}" FontWeight="Bold"/>
+                            <Image x:Name="IBTwo" Margin="6,88,6,0" Source="/Resources/0.jpg" Stretch="Fill" CacheMode="BitmapCache" Height="340" VerticalAlignment="Top"/>
+                            <TextBlock x:Name="TBTileTwo" Text="{Binding LineOne, Mode=OneWay}" TextAlignment="Center" TextWrapping="Wrap" Margin="10,26,10,0" FontFamily="/Logic;component/Fonts/Fonts.zip#SilverlandShadowC" FontSize="70" Style="{StaticResource PhoneTextExtraLargeStyle}" Height="100" VerticalAlignment="Top" CacheMode="BitmapCache" Foreground="{Binding TextColor, Mode=OneWay}"/>
+                            <TextBlock x:Name="RecIsOpenTwo" Height="19" Margin="190,440,190,0" TextWrapping="Wrap" Text="ОТКРЫТО" VerticalAlignment="Top" Foreground="Red" FontFamily="Impact" FontSize="17" TextAlignment="Center" FontWeight="Bold"/>
+
+                            <adduplex:AdControl x:Name="AdTwo" AdUnitId="153927" AppKey="871b0efa-d9be-4836-8547-4fa0541f685b" Margin="6,88,6,0" VerticalAlignment="Top"/>
+                        </Grid>
+                    </ScrollViewer>
+                    <Rectangle x:Name="RTUpTwo" Margin="0" CacheMode="BitmapCache" StrokeThickness="2" Height="43" VerticalAlignment="Top" Fill="{Binding ElementsColor, Mode=OneWay}"/>
+                    <TextBlock x:Name="TBOrnamentTwo" TextAlignment="Center" TextWrapping="Wrap" Margin="-60,-32,-60,0" FontFamily="/Logic;component/Fonts/Fonts.zip#Silverland Ornate" FontSize="80" Style="{StaticResource PhoneTextExtraLargeStyle}" Height="95" VerticalAlignment="Top" CacheMode="BitmapCache" Text="L0000000000000000l" Foreground="{Binding TextColor, Mode=OneWay}"/>
+                </Grid>
+            </phone:PivotItem>
+
+            <phone:PivotItem x:Name="ItemThree" CacheMode="BitmapCache" Header="" Margin="0,-48,0,0">
+                <Grid CacheMode="BitmapCache">
+                    <ScrollViewer Name="SVThree" CacheMode="BitmapCache">
+                        <Grid CacheMode="BitmapCache" Height="1230">
+                            <TextBlock x:Name="TBOrnamentThree1" TextAlignment="Center" TextWrapping="Wrap" Margin="0,57,0,0" FontFamily="/Logic;component/Fonts/Fonts.zip#Silverland Ornate" FontSize="80" Style="{StaticResource PhoneTextExtraLargeStyle}" Height="99" VerticalAlignment="Top" CacheMode="BitmapCache" Text="S0000000000000000s" Foreground="{Binding TextColor, Mode=OneWay}"/>
+                            <TextBlock x:Name="TBOrnamentThree2" TextAlignment="Center" TextWrapping="Wrap" Margin="0,357,0,0" FontFamily="/Logic;component/Fonts/Fonts.zip#Silverland Ornate" FontSize="80" Style="{StaticResource PhoneTextExtraLargeStyle}" Height="102" VerticalAlignment="Top" CacheMode="BitmapCache" Text="S0000000000000000s" RenderTransformOrigin="0.5,0.5" Foreground="{Binding TextColor, Mode=OneWay}">
+                                <TextBlock.RenderTransform>
+                                    <CompositeTransform Rotation="180"/>
+                                </TextBlock.RenderTransform>
+                            </TextBlock>
+
+                            <Rectangle x:Name="RTImageThree" Margin="2,84,2,0" CacheMode="BitmapCache" StrokeThickness="2" Height="348" VerticalAlignment="Top" Fill="{Binding ElementsColor, Mode=OneWay}" Stroke="{Binding TextColor, Mode=OneWay}"/>
+                            <TextBlock x:Name="TBBaseThree" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}" Margin="3,465,3,0" TextAlignment="Center" FontFamily="DOCKER ONE" Foreground="{Binding TextColor, Mode=OneWay}" FontSize="{Binding TextSize, Mode=OneWay}" CacheMode="BitmapCache" Text="{Binding LineThree, Mode=OneWay}" FontWeight="Bold"/>
+                            <Image x:Name="IBThree" Margin="6,88,6,0" Source="/Resources/0.jpg" Stretch="Fill" CacheMode="BitmapCache" Height="340" VerticalAlignment="Top"/>
+                            <TextBlock x:Name="TBTileThree" Text="{Binding LineOne, Mode=OneWay}" TextAlignment="Center" TextWrapping="Wrap" Margin="10,26,10,0" FontFamily="/Logic;component/Fonts/Fonts.zip#SilverlandShadowC" FontSize="70" Style="{StaticResource PhoneTextExtraLargeStyle}" Height="100" VerticalAlignment="Top" CacheMode="BitmapCache" Foreground="{Binding TextColor, Mode=OneWay}"/>
+                            <TextBlock x:Name="RecIsOpenThree" Height="19" Margin="190,440,190,0" TextWrapping="Wrap" Text="ОТКРЫТО" VerticalAlignment="Top" Foreground="Red" FontFamily="Impact" FontSize="17" TextAlignment="Center" FontWeight="Bold"/>
+
+                            <adduplex:AdControl x:Name="AdThree" AdUnitId="153927" AppKey="871b0efa-d9be-4836-8547-4fa0541f685b" Margin="6,88,6,0" VerticalAlignment="Top"/>
+                        </Grid>
+                    </ScrollViewer>
+                    <Rectangle x:Name="RTUpThree" Margin="0" CacheMode="BitmapCache" StrokeThickness="2" Height="43" VerticalAlignment="Top" Fill="{Binding ElementsColor, Mode=OneWay}"/>
+                    <TextBlock x:Name="TBOrnamentThree" TextAlignment="Center" TextWrapping="Wrap" Margin="-60,-32,-60,0" FontFamily="/Logic;component/Fonts/Fonts.zip#Silverland Ornate" FontSize="80" Style="{StaticResource PhoneTextExtraLargeStyle}" Height="95" VerticalAlignment="Top" CacheMode="BitmapCache" Text="L0000000000000000l" Foreground="{Binding TextColor, Mode=OneWay}"/>
+                </Grid>
+            </phone:PivotItem>
+
+        </phone:Pivot>
+
+        <Grid x:Name="QuestionPanel" Margin="0,0,0,-30" Background="{Binding ElementsColor, Mode=OneWay}" Visibility="Collapsed">
+            <Rectangle x:Name="RTQuestion" Fill="#00995B50" Stroke="#00000000" CacheMode="BitmapCache" StrokeThickness="2"/>
+            <TextBlock x:Name="TBTitleQuestion" Height="87" Margin="0,-2,0,0" TextWrapping="Wrap" Text="_\\ПОДСКАЗКА\\_" VerticalAlignment="Top" FontFamily="/Logic;component/Fonts/Fonts.zip#SilverlandDecoC" FontSize="82" CacheMode="BitmapCache" TextAlignment="Center" Foreground="{Binding TextColor, Mode=OneWay}"/>
+            <Rectangle x:Name="RecQuesTop" Fill="{Binding TextColor, Mode=OneWay}" Height="1" Margin="85,6,85,0" Stroke="#00F2E8DE" StrokeThickness="0" VerticalAlignment="Top" CacheMode="BitmapCache"/>
+            <Rectangle x:Name="RecQuesDown" Fill="{Binding TextColor, Mode=OneWay}" Height="1" Margin="85,74,85,0" Stroke="#00F2E8DE" StrokeThickness="0" VerticalAlignment="Top" CacheMode="BitmapCache"/>
+            <TextBlock x:Name="TBQuestion" Margin="5,85,5,80" TextWrapping="Wrap" Text="Ответ" FontFamily="DOCKER ONE" Foreground="{Binding TextColor, Mode=OneWay}" FontSize="{Binding TextSize, Mode=OneWay}" TextAlignment="Center" CacheMode="BitmapCache" FontWeight="Bold"/>
+            <Rectangle x:Name="RecQuesOk" Fill="#00000000" Height="45" Margin="15,0,15,20" Stroke="{Binding TextColor, Mode=OneWay}" VerticalAlignment="Bottom" StrokeThickness="2" CacheMode="BitmapCache"/>
+            <TextBlock x:Name="TBQuesOk" Height="57" Margin="15,0,15,25" TextWrapping="Wrap" Text="ПРОДОЛЖИТЬ" VerticalAlignment="Bottom" TextAlignment="Center" FontFamily="/Logic;component/Fonts/Fonts.zip#SilverlandShadowC" Foreground="{Binding TextColor, Mode=OneWay}" FontSize="75" ManipulationStarted="TBQuesOk_ManipulationStarted" ManipulationCompleted="TBQuesOk_ManipulationCompleted" CacheMode="BitmapCache"/>
+        </Grid>
+
+        <Grid x:Name="AnswerPanel" Margin="0,0,0,-30" Background="{Binding ElementsColor, Mode=OneWay}" Visibility="Collapsed">
+            <Rectangle x:Name="RTAnswer" Fill="#00995B50" Stroke="#00000000" CacheMode="BitmapCache" StrokeThickness="2"/>
+            <TextBlock x:Name="TBTitleAnswer" Height="87" Margin="0,-2,0,0" TextWrapping="Wrap" Text="_\\\\\\ОТВЕТ\\\\\\_" VerticalAlignment="Top" FontFamily="/Logic;component/Fonts/Fonts.zip#SilverlandDecoC" FontSize="82" CacheMode="BitmapCache" TextAlignment="Center" Foreground="{Binding TextColor, Mode=OneWay}"/>
+            <Rectangle x:Name="RecAnsTop" Fill="{Binding TextColor, Mode=OneWay}" Height="1" Margin="85,6,85,0" Stroke="#00F2E8DE" StrokeThickness="0" VerticalAlignment="Top" CacheMode="BitmapCache"/>
+            <Rectangle x:Name="RecAnsDown" Fill="{Binding TextColor, Mode=OneWay}" Height="1" Margin="85,74,85,0" Stroke="#00F2E8DE" StrokeThickness="0" VerticalAlignment="Top" CacheMode="BitmapCache"/>
+            <TextBlock x:Name="TBAnswer" Margin="5,220,5,150" TextWrapping="Wrap" Text="Ответ" FontFamily="DOCKER ONE" Foreground="{Binding TextColor, Mode=OneWay}" FontSize="{Binding TextSize, Mode=OneWay}" TextAlignment="Center" CacheMode="BitmapCache" LineStackingStrategy="BaselineToBaseline" TextTrimming="WordEllipsis" FontWeight="Bold"/>
+            <Rectangle x:Name="RecOk" Fill="#00000000" Height="45" Margin="15,0,15,20" Stroke="{Binding TextColor, Mode=OneWay}" VerticalAlignment="Bottom" StrokeThickness="2" CacheMode="BitmapCache"/>
+            <TextBlock x:Name="TBOk" Height="57" Margin="15,0,15,25" TextWrapping="Wrap" Text="ПРОДОЛЖИТЬ" VerticalAlignment="Bottom" TextAlignment="Center" FontFamily="/Logic;component/Fonts/Fonts.zip#SilverlandShadowC" Foreground="{Binding TextColor, Mode=OneWay}" FontSize="75" ManipulationStarted="TBOk_ManipulationStarted" ManipulationCompleted="TBOk_ManipulationCompleted" CacheMode="BitmapCache"/>
+        </Grid>
+    </Grid>
+</phone:PhoneApplicationPage>

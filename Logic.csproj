@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DD1DEEAC-CF60-47F2-AB05-A1CA568BD3A9}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Logic</RootNamespace>
+    <AssemblyName>Logic</AssemblyName>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>FryLogic.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>Logic.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <ExpressionBlendVersion>12.0.41002.1</ExpressionBlendVersion>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">.\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|ARM' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\ARM\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|ARM' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\ARM\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppHelper\AppHelper.cs" />
+    <Compile Include="DetailsPage.xaml.cs">
+      <DependentUpon>DetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ItemViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BlendEmbeddedFont Include="Fonts\lczpRYFc.ttf">
+      <All>True</All>
+      <AutoFill>True</AutoFill>
+    </BlendEmbeddedFont>
+    <BlendEmbeddedFont Include="Fonts\M4uxjTBo.ttf">
+      <All>True</All>
+      <AutoFill>True</AutoFill>
+    </BlendEmbeddedFont>
+    <Content Include="Assets\appbar.debug.step.into.png" />
+    <Content Include="Assets\appbar.warning.circle.png" />
+    <Content Include="BackGround.jpg" />
+    <Content Include="FonBlack.png" />
+    <Content Include="Fonts\xDsNa9uf.ttf">
+      <All>True</All>
+      <AutoFill>True</AutoFill>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FonWhite.png" />
+    <Content Include="LastItem.png" />
+    <Content Include="Resources\141.jpg" />
+    <Content Include="Resources\142.jpg" />
+    <Content Include="Resources\143.jpg" />
+    <Content Include="Resources\144.jpg" />
+    <Content Include="Resources\145.jpg" />
+    <Content Include="Resources\146.jpg" />
+    <Content Include="Resources\147.jpg" />
+    <Content Include="Resources\148.jpg" />
+    <Content Include="Resources\149.jpg" />
+    <Content Include="Resources\150.jpg" />
+    <Content Include="Resources\151.jpg" />
+    <Content Include="Resources\152.jpg" />
+    <Content Include="Resources\153.jpg" />
+    <Content Include="Resources\154.jpg" />
+    <Content Include="Resources\155.jpg" />
+    <Content Include="Resources\156.jpg" />
+    <Content Include="Resources\157.jpg" />
+    <Content Include="Resources\158.jpg" />
+    <Content Include="Resources\159.jpg" />
+    <Content Include="Resources\160.jpg" />
+    <Content Include="Resources\161.jpg" />
+    <Content Include="Resources\162.jpg" />
+    <Content Include="Resources\163.jpg" />
+    <Content Include="Resources\164.jpg" />
+    <Content Include="Resources\166.jpg" />
+    <Content Include="Resources\167.jpg" />
+    <Content Include="Resources\168.jpg" />
+    <Content Include="Resources\169.jpg" />
+    <Content Include="Resources\170.jpg" />
+    <Content Include="Resources\171.jpg" />
+    <Content Include="Resources\172.jpg" />
+    <Content Include="Resources\173.jpg" />
+    <Content Include="Resources\174.jpg" />
+    <Content Include="Resources\175.jpg" />
+    <Content Include="Resources\176.jpg" />
+    <Content Include="Resources\177.jpg" />
+    <Content Include="Resources\178.jpg" />
+    <Content Include="Resources\179.jpg" />
+    <Content Include="Resources\18.jpg" />
+    <Content Include="Resources\180.jpg" />
+    <Content Include="Resources\181.jpg" />
+    <Content Include="Resources\182.jpg" />
+    <Content Include="Resources\183.jpg" />
+    <Content Include="Resources\184.jpg" />
+    <Content Include="Resources\185.jpg" />
+    <Content Include="Resources\186.jpg" />
+    <Content Include="Resources\187.jpg" />
+    <Content Include="Resources\188.jpg" />
+    <Content Include="Resources\189.jpg" />
+    <Content Include="Resources\190.jpg" />
+    <Content Include="Resources\191.jpg" />
+    <Content Include="Resources\192.jpg" />
+    <Content Include="Resources\193.jpg" />
+    <Content Include="Resources\194.jpg" />
+    <Content Include="Resources\195.jpg" />
+    <Content Include="Resources\196.jpg" />
+    <Content Include="Resources\197.jpg" />
+    <Content Include="Resources\198.jpg" />
+    <Content Include="Resources\199.jpg" />
+    <Content Include="Resources\200.jpg" />
+    <Content Include="Resources\201.jpg" />
+    <Content Include="Resources\202.jpg" />
+    <Content Include="Resources\203.jpg" />
+    <Content Include="Resources\204.jpg" />
+    <Content Include="Resources\205.jpg" />
+    <Content Include="Resources\206.jpg" />
+    <Content Include="Resources\207.jpg" />
+    <Content Include="Resources\208.jpg" />
+    <Content Include="Resources\209.jpg" />
+    <Content Include="Resources\210.jpg" />
+    <Content Include="Resources\211.jpg" />
+    <Content Include="Resources\212.jpg" />
+    <Content Include="Resources\213.jpg" />
+    <Content Include="Resources\214.jpg" />
+    <Content Include="Resources\215.jpg" />
+    <Content Include="Resources\216.jpg" />
+    <Content Include="Resources\217.jpg" />
+    <Content Include="Resources\218.jpg" />
+    <Content Include="Resources\219.jpg" />
+    <Content Include="Resources\220.jpg" />
+    <Content Include="Resources\221.jpg" />
+    <Content Include="Resources\222.jpg" />
+    <Content Include="Resources\223.jpg" />
+    <Content Include="Resources\224.jpg" />
+    <Content Include="Resources\225.jpg" />
+    <Content Include="Resources\226.jpg" />
+    <Content Include="Resources\227.jpg" />
+    <Content Include="Resources\228.jpg" />
+    <Content Include="Resources\229.jpg" />
+    <Content Include="Resources\230.jpg" />
+    <Content Include="Resources\231.jpg" />
+    <Content Include="Resources\232.jpg" />
+    <Content Include="Resources\233.jpg" />
+    <Content Include="Resources\234.jpg" />
+    <Content Include="Resources\235.jpg" />
+    <Content Include="Resources\Full.jpg" />
+    <Content Include="Resources\236.jpg" />
+    <Content Include="SplashScreenImage.jpg" />
+    <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Delete.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Select.png" />
+    <None Include="packages.config" />
+    <None Include="Properties\AppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationIcon.png" />
+    <Content Include="Assets\appbar.chat.png" />
+    <Content Include="Assets\appbar.currency.rubles.png" />
+    <Content Include="Assets\appbar.email.hardedge.png" />
+    <Content Include="Assets\appbar.lightbulb.coil.png" />
+    <Content Include="Assets\appbar.marketplace.png" />
+    <Content Include="Assets\appbar.save.png" />
+    <Content Include="Assets\appbar.star.png" />
+    <Content Include="Assets\ApplicationIcon.png" />
+    <Content Include="Assets\images.jpg" />
+    <Content Include="Assets\Tiles\FlipCycleTileLarge.png" />
+    <Content Include="Assets\Tiles\FlipCycleTileMedium.png" />
+    <Content Include="Assets\Tiles\FlipCycleTileSmall.png" />
+    <Content Include="FlipCycleTileLarge.png" />
+    <Content Include="FlipCycleTileMedium.png" />
+    <Content Include="FlipCycleTileSmall.png" />
+    <Content Include="Resources\0.jpg" />
+    <Content Include="Resources\1.jpg" />
+    <Content Include="Resources\10.jpg" />
+    <Content Include="Resources\100.jpg" />
+    <Content Include="Resources\101.jpg" />
+    <Content Include="Resources\102.jpg" />
+    <Content Include="Resources\103.jpg" />
+    <Content Include="Resources\104.jpg" />
+    <Content Include="Resources\105.jpg" />
+    <Content Include="Resources\106.jpg" />
+    <Content Include="Resources\107.jpg" />
+    <Content Include="Resources\108.jpg" />
+    <Content Include="Resources\109.jpg" />
+    <Content Include="Resources\11.jpg" />
+    <Content Include="Resources\110.jpg" />
+    <Content Include="Resources\111.jpg" />
+    <Content Include="Resources\112.jpg" />
+    <Content Include="Resources\113.jpg" />
+    <Content Include="Resources\114.jpg" />
+    <Content Include="Resources\115.jpg" />
+    <Content Include="Resources\116.jpg" />
+    <Content Include="Resources\117.jpg" />
+    <Content Include="Resources\118.jpg" />
+    <Content Include="Resources\119.jpg" />
+    <Content Include="Resources\12.jpg" />
+    <Content Include="Resources\120.jpg" />
+    <Content Include="Resources\121.jpg" />
+    <Content Include="Resources\122.jpg" />
+    <Content Include="Resources\123.jpg" />
+    <Content Include="Resources\124.jpg" />
+    <Content Include="Resources\125.jpg" />
+    <Content Include="Resources\126.jpg" />
+    <Content Include="Resources\127.jpg" />
+    <Content Include="Resources\128.jpg" />
+    <Content Include="Resources\129.jpg" />
+    <Content Include="Resources\130.jpg" />
+    <Content Include="Resources\131.JPG" />
+    <Content Include="Resources\132.jpg" />
+    <Content Include="Resources\133.jpg" />
+    <Content Include="Resources\134.jpg" />
+    <Content Include="Resources\135.jpg" />
+    <Content Include="Resources\136.jpg" />
+    <Content Include="Resources\137.jpg" />
+    <Content Include="Resources\138.jpg" />
+    <Content Include="Resources\139.jpg" />
+    <Content Include="Resources\140.jpg" />
+    <Content Include="Resources\165.jpg" />
+    <Content Include="Resources\13.jpg" />
+    <Content Include="Resources\14.jpg" />
+    <Content Include="Resources\15.jpg" />
+    <Content Include="Resources\16.jpg" />
+    <Content Include="Resources\17.jpg" />
+    <Content Include="Resources\19.jpg" />
+    <Content Include="Resources\2.jpg" />
+    <Content Include="Resources\20.jpg" />
+    <Content Include="Resources\21.jpg" />
+    <Content Include="Resources\22.jpg" />
+    <Content Include="Resources\23.jpg" />
+    <Content Include="Resources\24.jpg" />
+    <Content Include="Resources\25.jpg" />
+    <Content Include="Resources\26.jpg" />
+    <Content Include="Resources\27.jpg" />
+    <Content Include="Resources\28.jpg" />
+    <Content Include="Resources\29.jpg" />
+    <Content Include="Resources\3.jpg" />
+    <Content Include="Resources\30.jpg" />
+    <Content Include="Resources\31.jpg" />
+    <Content Include="Resources\32.jpg" />
+    <Content Include="Resources\33.jpg" />
+    <Content Include="Resources\34.jpg" />
+    <Content Include="Resources\35.jpg" />
+    <Content Include="Resources\36.jpg" />
+    <Content Include="Resources\37.jpg" />
+    <Content Include="Resources\38.jpg" />
+    <Content Include="Resources\39.jpg" />
+    <Content Include="Resources\4.jpg" />
+    <Content Include="Resources\40.jpg" />
+    <Content Include="Resources\41.jpg" />
+    <Content Include="Resources\42.jpg" />
+    <Content Include="Resources\43.jpg" />
+    <Content Include="Resources\44.jpg" />
+    <Content Include="Resources\45.jpg" />
+    <Content Include="Resources\46.jpg" />
+    <Content Include="Resources\47.jpg" />
+    <Content Include="Resources\48.jpg" />
+    <Content Include="Resources\49.jpg" />
+    <Content Include="Resources\5.jpg" />
+    <Content Include="Resources\50.jpg" />
+    <Content Include="Resources\51.jpg" />
+    <Content Include="Resources\52.jpg" />
+    <Content Include="Resources\53.jpg" />
+    <Content Include="Resources\54.jpg" />
+    <Content Include="Resources\55.jpg" />
+    <Content Include="Resources\56.jpg" />
+    <Content Include="Resources\57.jpg" />
+    <Content Include="Resources\58.jpg" />
+    <Content Include="Resources\59.jpg" />
+    <Content Include="Resources\6.jpg" />
+    <Content Include="Resources\60.jpg" />
+    <Content Include="Resources\61.jpg" />
+    <Content Include="Resources\62.jpg" />
+    <Content Include="Resources\63.jpg" />
+    <Content Include="Resources\64.jpg" />
+    <Content Include="Resources\65.jpg" />
+    <Content Include="Resources\66.jpg" />
+    <Content Include="Resources\67.jpg" />
+    <Content Include="Resources\68.jpg" />
+    <Content Include="Resources\69.jpg" />
+    <Content Include="Resources\7.jpg" />
+    <Content Include="Resources\70.jpg" />
+    <Content Include="Resources\71.jpg" />
+    <Content Include="Resources\72.jpg" />
+    <Content Include="Resources\73.jpg" />
+    <Content Include="Resources\74.jpg" />
+    <Content Include="Resources\75.jpg" />
+    <Content Include="Resources\76.jpg" />
+    <Content Include="Resources\77.jpg" />
+    <Content Include="Resources\78.jpg" />
+    <Content Include="Resources\79.jpg" />
+    <Content Include="Resources\8.jpg" />
+    <Content Include="Resources\80.jpg" />
+    <Content Include="Resources\81.jpg" />
+    <Content Include="Resources\82.jpg" />
+    <Content Include="Resources\83.jpg" />
+    <Content Include="Resources\84.jpg" />
+    <Content Include="Resources\85.jpg" />
+    <Content Include="Resources\86.jpg" />
+    <Content Include="Resources\87.jpg" />
+    <Content Include="Resources\88.jpg" />
+    <Content Include="Resources\89.jpg" />
+    <Content Include="Resources\9.jpg" />
+    <Content Include="Resources\90.jpg" />
+    <Content Include="Resources\91.jpg" />
+    <Content Include="Resources\92.jpg" />
+    <Content Include="Resources\93.jpg" />
+    <Content Include="Resources\94.jpg" />
+    <Content Include="Resources\95.jpg" />
+    <Content Include="Resources\96.jpg" />
+    <Content Include="Resources\97.jpg" />
+    <Content Include="Resources\98.jpg" />
+    <Content Include="Resources\99.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DetailsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SampleData\MainViewModelSampleData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="AdDuplex.WindowsPhone">
+      <HintPath>packages\AdDuplexWP8.9.0.0.6\lib\wp8\AdDuplex.WindowsPhone.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=8.0.1.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <BlendEmbeddedFont Include="Fonts\Ut9SSie4.ttf">
+      <IsSystemFont>True</IsSystemFont>
+      <All>True</All>
+      <AutoFill>True</AutoFill>
+      <Uppercase>True</Uppercase>
+      <Lowercase>True</Lowercase>
+      <Numbers>True</Numbers>
+      <Punctuation>True</Punctuation>
+    </BlendEmbeddedFont>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Expression\Blend\WindowsPhone\v8.0\Microsoft.Expression.Blend.WindowsPhone.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+</Project>

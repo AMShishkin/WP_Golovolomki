@@ -1,0 +1,171 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Logic.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait">
+
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" Mode="Minimized" Opacity="1" BackgroundColor="#FFF1F0DD" ForegroundColor="Black">
+            <shell:ApplicationBarIconButton x:Name="AppEmail" IconUri="/Assets/appbar.email.hardedge.png" Text="АВТОРУ" Click="AppEmail_Click" />
+            <shell:ApplicationBarIconButton x:Name="AppRate" IconUri="/Assets/appbar.star.png" Text="ОЦЕНИТЬ" Click="AppRate_Click" />
+            <shell:ApplicationBarIconButton x:Name="AppMyApps" IconUri="/Assets/appbar.marketplace.png" Text="от автора" Click="AppMyApps_Click"/>
+            <shell:ApplicationBarIconButton x:Name="AppMarker" IconUri="/Assets/appbar.debug.step.into.png" Text="закладка" Click="AppMarker_Click"/>
+
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+    <Grid x:Name="LayoutRoot" CacheMode="BitmapCache" Background="{Binding Items[0].ElementsColor, Mode=OneWay}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="780"/>
+        </Grid.RowDefinitions>
+
+        <Image x:Name="FonWhite" CacheMode="BitmapCache" Source="/FonWhite.png" Opacity="0.05" Visibility="Collapsed"></Image>
+        <Image x:Name="FonBlack" CacheMode="BitmapCache" Source="/FonBlack.png" Opacity="0.05" Visibility="Collapsed"></Image>
+
+
+
+
+        <phone:Pivot x:Name="MainPivot" Margin="0,0,0,-20" Title="" CacheMode="BitmapCache" RenderTransformOrigin="0.5,0.5">
+            <phone:Pivot.RenderTransform>
+                <CompositeTransform/>
+            </phone:Pivot.RenderTransform>
+
+
+
+            <phone:PivotItem CacheMode="BitmapCache" Header="" Margin="0,20,0,0">
+                <Grid Margin="0" CacheMode="BitmapCache">
+                    <TextBlock Margin="12,190,12,70" TextWrapping="Wrap" FontFamily="DOCKER TWO" FontSize="24" Foreground="{Binding Items[0].TextColor, Mode=OneWay}" TextAlignment="Center" CacheMode="BitmapCache" FontWeight="Bold">
+                    	<Run Text="Если вам понравилось данное приложение и вы желаете помочь мне быстрее добавить новые загадки и головоломки, а также улучшить программу, оцените приложение на 5 звезд и оставьте положительный отзыв."/>
+                    	<LineBreak/>
+                    	<LineBreak/>
+                    	<Run Text="P.S. А пока я добавляю новые загадки, Вы можете скачать остальные мои приложения и игры"/>
+                        <LineBreak/>
+                    	<Run Text="( ... -&gt; от автора )"/>
+                    </TextBlock>
+                </Grid>
+            </phone:PivotItem>
+
+            <phone:PivotItem CacheMode="BitmapCache" Header="" Margin="0">
+                <Grid x:Name="ContentPanel" Margin="0,40,0,0" CacheMode="BitmapCache">
+                    <phone:LongListSelector x:Name="MainLongListSelector" ItemsSource="{Binding Items, Mode=OneWay}" SelectionChanged="MainLongListSelector_SelectionChanged" Margin="13,24,0,0" CacheMode="BitmapCache" FontFamily="/Logic;component/Fonts/Fonts.zip#DOCKER TWO" FontSize="14">
+                        <phone:LongListSelector.ItemTemplate>
+
+                            <DataTemplate>
+                                <StackPanel x:Name="STPanel" HorizontalAlignment="Center" Width="480" VerticalAlignment="Center" Height="143" Margin="-6,0,-7,0" CacheMode="BitmapCache">
+
+                                    <Rectangle x:Name="RectTile" Fill="#00000000" Height="120" Margin="20,20,20,0" Stroke="{Binding TextColor, Mode=OneWay}" CacheMode="BitmapCache"/>
+                                    <Rectangle x:Name="RectMain" Fill="#00000000" Height="79" Margin="23,-85,23,0" Stroke="{Binding TextColor, Mode=OneWay}" CacheMode="BitmapCache"/>
+
+
+                                    <Rectangle x:Name="RectLastItemLeft" Height="37" Margin="21,-200,0,0" CacheMode="BitmapCache" Width="15" HorizontalAlignment="Left" Visibility="{Binding Visibility}">
+                                        <Rectangle.Fill>
+                                            <ImageBrush Stretch="Fill" ImageSource="/LastItem.png"/>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+
+                                    <Rectangle x:Name="RectLastItemRight" Height="37" Margin="0,-200,21,0" CacheMode="BitmapCache" Visibility="{Binding Visibility}" HorizontalAlignment="Right" Width="15" RenderTransformOrigin="0.5,0.5">
+                                        <Rectangle.RenderTransform>
+                                            <CompositeTransform ScaleX="-1"/>
+                                        </Rectangle.RenderTransform>
+                                        <Rectangle.Fill>
+                                            <ImageBrush Stretch="Fill" ImageSource="/LastItem.png"/>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+
+                                    <TextBlock x:Name="TBOrnamentThree1" TextAlignment="Center" TextWrapping="Wrap" Margin="-18,-102,-18,0" FontFamily="/Logic;component/Fonts/Fonts.zip#Silverland Ornate" FontSize="58" Style="{StaticResource PhoneTextExtraLargeStyle}" Height="20" VerticalAlignment="Top" CacheMode="BitmapCache" Text="L00000000000000000000l" Foreground="{Binding TextColor, Mode=OneWay}"/>
+                                    <TextBlock x:Name="TBOrnamentThree2" TextAlignment="Center" TextWrapping="Wrap" Margin="-18,-119,-18,0" FontFamily="/Logic;component/Fonts/Fonts.zip#Silverland Ornate" FontSize="58" Style="{StaticResource PhoneTextExtraLargeStyle}" Height="20" VerticalAlignment="Top" CacheMode="BitmapCache" Text="L00000000000000000000l" Foreground="{Binding TextColor, Mode=OneWay}" RenderTransformOrigin="0.5,0.5">
+                                        <TextBlock.RenderTransform>
+                                            <CompositeTransform Rotation="180"/>
+                                        </TextBlock.RenderTransform>
+                                    </TextBlock>
+
+
+
+
+                                    <TextBlock x:Name="TileName" Text="{Binding LineOne, Mode=OneWay}" TextWrapping="Wrap" Margin="20,-130,20,0" FontFamily="/Logic;component/Fonts/Fonts.zip#SilverlandShadowC" FontSize="55" Height="56" VerticalAlignment="Top" CacheMode="BitmapCache" TextAlignment="Center" Foreground="{Binding TextColor, Mode=OneWay}"/>
+
+                                    <TextBlock Text="{Binding LineTwo, Mode=OneWay}" Height="80" TextWrapping="Wrap" Margin="26,-85,26,0" FontFamily="DOCKER TWO" FontSize="20" Foreground="{Binding TextColor, Mode=OneWay}" toolkit:SlideInEffect.LineIndex="3" CacheMode="BitmapCache" FontWeight="Bold" TextAlignment="Center"/>
+                                    <TextBlock TextWrapping="Wrap" Margin="25,-20,300,0" FontFamily="DOCKER TWO" FontSize="16" Height="20" VerticalAlignment="Top" Text="{Binding Open, Mode=OneWay}" FontWeight="Bold" Foreground="#FFC53838" CacheMode="BitmapCache"/>
+                                    <TextBlock x:Name="TBNumber" Text="{Binding ID}" Height="25" TextWrapping="Wrap" Margin="0,-25,25,0" FontFamily="DOCKER TWO" FontSize="20" Foreground="{Binding TextColor, Mode=OneWay}" toolkit:SlideInEffect.LineIndex="3" CacheMode="BitmapCache" FontWeight="Bold" HorizontalAlignment="Right" Width="72" TextAlignment="Right"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </phone:LongListSelector.ItemTemplate>
+                    </phone:LongListSelector>
+                </Grid>
+            </phone:PivotItem>
+
+
+            <phone:PivotItem CacheMode="BitmapCache" Header="" Margin="12,20,12,0">
+                <Grid Margin="-12,0" CacheMode="BitmapCache">
+                    <HyperlinkButton Content="что нового в v1.4.0" Height="123" Margin="0,116,0,0" VerticalAlignment="Top" Background="#004BFFFF" Foreground="{Binding Items[0].TextColor, Mode=OneWay}" FontFamily="Tahoma" FontSize="28" Click="HyperlinkButton_Click" CacheMode="BitmapCache" FontWeight="Bold"/>
+
+                    <Rectangle Fill="Black" HorizontalAlignment="Right" Height="42" Margin="0,0,27,416" Stroke="Black" VerticalAlignment="Bottom" Width="97" StrokeThickness="0" CacheMode="BitmapCache"/>
+                    <Rectangle Fill="Black" HorizontalAlignment="Right" Height="42" Margin="0,0,27,316" Stroke="Black" VerticalAlignment="Bottom" Width="97" StrokeThickness="0" CacheMode="BitmapCache"/>
+                    <Rectangle Fill="Black" HorizontalAlignment="Right" Height="42" Margin="0,0,27,216" Stroke="Black" VerticalAlignment="Bottom" Width="97" StrokeThickness="0" CacheMode="BitmapCache"/>
+                    <Rectangle Fill="Black" HorizontalAlignment="Right" Height="42" Margin="0,0,27,116" Stroke="Black" VerticalAlignment="Bottom" Width="97" StrokeThickness="0" CacheMode="BitmapCache"/>
+
+                    <toolkit:ToggleSwitch x:Name="SwitchTheme" Margin="0,0,0,359" FontFamily="Tahoma" BorderThickness="20,0" SwitchForeground="#00FD0A0A" Foreground="{Binding Items[0].TextColor, Mode=OneWay}" FontSize="22" Height="110" VerticalAlignment="Bottom" Background="#FF8B8B8B" Content="Выключено" Checked="SwitchTheme_Checked" Unchecked="SwitchTheme_Unchecked" CacheMode="BitmapCache">
+                        <toolkit:ToggleSwitch.Header>
+                            <TextBlock Text="Оформление" Foreground="{Binding Items[0].TextColor, Mode=OneWay}" FontFamily="Tahoma" FontWeight="Bold" CacheMode="BitmapCache" />
+                        </toolkit:ToggleSwitch.Header>
+                    </toolkit:ToggleSwitch>
+
+                    <toolkit:ToggleSwitch x:Name="SwitchSize" Margin="0,0,0,259" FontFamily="Tahoma" BorderThickness="20,0" SwitchForeground="#00FD0A0A" Foreground="{Binding Items[0].TextColor, Mode=OneWay}" FontSize="22" Height="110" VerticalAlignment="Bottom" Background="#FF8B8B8B" Content="Выключено" Checked="SwitchSize_Checked" Unchecked="SwitchSize_Unchecked" CacheMode="BitmapCache">
+                        <toolkit:ToggleSwitch.Header>
+                            <TextBlock Text="Размер текста" Foreground="{Binding Items[0].TextColor, Mode=OneWay}" FontFamily="Tahoma" FontWeight="Bold" />
+                        </toolkit:ToggleSwitch.Header>
+                    </toolkit:ToggleSwitch>
+
+                    <toolkit:ToggleSwitch x:Name="SwitchBar" Margin="0,0,0,159" FontFamily="Tahoma" BorderThickness="20,0" SwitchForeground="#00FD0A0A" Foreground="{Binding Items[0].TextColor, Mode=OneWay}" FontSize="22" Height="110" VerticalAlignment="Bottom" Background="#FF8B8B8B" Content="Выключено" Checked="SwitchBar_Checked" Unchecked="SwitchBar_Unchecked" CacheMode="BitmapCache">
+                        <toolkit:ToggleSwitch.Header>
+                            <TextBlock Text="Панель" Foreground="{Binding Items[0].TextColor, Mode=OneWay}" FontFamily="Tahoma" FontWeight="Bold" CacheMode="BitmapCache" />
+                        </toolkit:ToggleSwitch.Header>
+                    </toolkit:ToggleSwitch>
+
+                    <toolkit:ToggleSwitch x:Name="SwitchFone" Margin="0,0,0,59" FontFamily="Tahoma" BorderThickness="20,0" SwitchForeground="#00FD0A0A" Foreground="{Binding Items[0].TextColor, Mode=OneWay}" FontSize="22" Height="110" VerticalAlignment="Bottom" Background="#FF8B8B8B" CacheMode="BitmapCache" Checked="SwitchFone_Checked" Unchecked="SwitchFone_Unchecked">
+                        <toolkit:ToggleSwitch.Header>
+                            <TextBlock Text="Фоновое изображение" Foreground="{Binding Items[0].TextColor, Mode=OneWay}" FontFamily="Tahoma" FontWeight="Bold" CacheMode="BitmapCache" />
+                        </toolkit:ToggleSwitch.Header>
+                    </toolkit:ToggleSwitch>
+
+                </Grid>
+            </phone:PivotItem>
+        </phone:Pivot>
+
+        <TextBlock x:Name="AppName" Height="84" Margin="0,-2,0,0" TextWrapping="Wrap" Text="_ГОЛОВОЛОМКИ_" VerticalAlignment="Top" FontFamily="/Logic;component/Fonts/Fonts.zip#SilverlandDecoC" FontSize="82" CacheMode="BitmapCache" TextAlignment="Center" Foreground="{Binding Items[0].TextColor, Mode=OneWay}"/>
+        <Rectangle Fill="{Binding Items[0].TextColor, Mode=OneWay}" Height="1" Margin="75,6,75,0" Stroke="#00F2E8DE" StrokeThickness="0" VerticalAlignment="Top" CacheMode="BitmapCache"/>
+        <Rectangle Fill="{Binding Items[0].TextColor, Mode=OneWay}" Height="1" Margin="75,74,75,0" Stroke="#00F2E8DE" StrokeThickness="0" VerticalAlignment="Top" CacheMode="BitmapCache"/>
+    </Grid>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</phone:PhoneApplicationPage>
